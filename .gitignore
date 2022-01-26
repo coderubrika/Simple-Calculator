@@ -59,6 +59,7 @@ sysinfo.txt
 *.apk
 *.aab
 *.unitypackage
+!UnityPackages/**/*.unitypackage
 *.app
 
 # Crashlytics generated file
