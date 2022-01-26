@@ -19,14 +19,14 @@ namespace Assets.Scripts.Utility
     public struct NumberChar
     {
         public char Char;
-        public NumberEnum number;
+        public NumberEnum Number;
     }
 
     [Serializable]
     public struct BinaryFloatOperator
     {
         public char Char;
-        public OperatorEnum operatorEnum;
+        public OperatorEnum OperatorEnum;
         public BinaryFloatOperation Operation;
     }
 
@@ -34,6 +34,6 @@ namespace Assets.Scripts.Utility
     public struct ActionOperator
     {
         public char Char;
-        public OperatorEnum operatorEnum;
+        public OperatorEnum OperatorEnum;
     }
 }

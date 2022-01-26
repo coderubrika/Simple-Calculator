@@ -280,7 +280,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value:
     Char: 45
-    operatorEnum: 1
+    OperatorEnum: 0
     Operation: {fileID: 0}
   operation: {fileID: 11400000, guid: 6c931e6075f15284a8a671067a41acf5, type: 2}
 --- !u!1 &38414983
@@ -528,7 +528,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value:
     Char: 55
-    number: 7
+    Number: 0
 --- !u!1 &284334375
 GameObject:
   m_ObjectHideFlags: 0
@@ -782,7 +782,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value:
     Char: 247
-    operatorEnum: 3
+    OperatorEnum: 0
     Operation: {fileID: 0}
   operation: {fileID: 11400000, guid: 17fe4a488c3fb834e851f41319ab16d8, type: 2}
 --- !u!1 &372084031
@@ -1076,7 +1076,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value:
     Char: 49
-    number: 1
+    Number: 0
 --- !u!1 &382909734
 GameObject:
   m_ObjectHideFlags: 0
@@ -1368,7 +1368,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value:
     Char: 51
-    number: 3
+    Number: 0
 --- !u!1 &423624281
 GameObject:
   m_ObjectHideFlags: 0
@@ -1660,7 +1660,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value:
     Char: 52
-    number: 4
+    Number: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1802,7 +1802,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1+2
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2143,7 +2143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51d10f09b2a6ca64eb93eb1882759d4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnPressed:
+  _onPressed:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 849148898}
@@ -2170,7 +2170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 327a7b1d410180249930cab62899c8a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnPressed:
+  _onPressed:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 849148898}
@@ -2199,7 +2199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _defaultOperator:
     Char: 43
-    operatorEnum: 0
+    OperatorEnum: 0
     Operation: {fileID: 11400000, guid: 8a9b7049279bfa94fb2260ecd891d139, type: 2}
   _onRenderPreviewOutput:
     m_PersistentCalls:
@@ -2257,7 +2257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03908e2d0e2eb4f448505a88479fbd72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnPressed:
+  _onPressed:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 849148898}
@@ -2784,7 +2784,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value:
     Char: 61
-    operatorEnum: 4
+    OperatorEnum: 4
 --- !u!1 &948538703
 GameObject:
   m_ObjectHideFlags: 0
@@ -3276,7 +3276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value:
     Char: 53
-    number: 5
+    Number: 0
 --- !u!1 &1047811415
 GameObject:
   m_ObjectHideFlags: 0
@@ -3335,7 +3335,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 3
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3673,7 +3673,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _defaultOperator:
     Char: 0
-    operatorEnum: 0
+    OperatorEnum: 0
     Operation: {fileID: 0}
   _onRenderPreviewOutput:
     m_PersistentCalls:
@@ -3972,7 +3972,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value:
     Char: 57
-    number: 9
+    Number: 0
 --- !u!1 &1439115394
 GameObject:
   m_ObjectHideFlags: 0
@@ -4130,7 +4130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value:
     Char: 43
-    operatorEnum: 0
+    OperatorEnum: 0
     Operation: {fileID: 0}
   operation: {fileID: 11400000, guid: 8a9b7049279bfa94fb2260ecd891d139, type: 2}
 --- !u!1 &1463548926
@@ -4290,7 +4290,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value:
     Char: 48
-    number: 0
+    Number: 0
 --- !u!1 &1463869731
 GameObject:
   m_ObjectHideFlags: 0
@@ -4535,7 +4535,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value:
     Char: 56
-    number: 8
+    Number: 0
 --- !u!1 &1549738898
 GameObject:
   m_ObjectHideFlags: 0
@@ -5316,7 +5316,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value:
     Char: 42
-    operatorEnum: 2
+    OperatorEnum: 0
     Operation: {fileID: 0}
   operation: {fileID: 11400000, guid: 2245455a7dd8fe34bad7dddf35a92cd2, type: 2}
 --- !u!1 &1958353286
@@ -5476,7 +5476,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value:
     Char: 54
-    number: 6
+    Number: 0
 --- !u!1 &1962941668
 GameObject:
   m_ObjectHideFlags: 0
@@ -6123,4 +6123,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value:
     Char: 50
-    number: 2
+    Number: 0

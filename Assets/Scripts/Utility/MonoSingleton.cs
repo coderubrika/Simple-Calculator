@@ -5,18 +5,18 @@ namespace Assets.Scripts.Utility
 {
     public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
     {
-        private static T instance = null;
+        private static T _instance = null;
         public static T Instance
         {
             get
             {
-                if (instance == null)
+                if (_instance == null)
                 {
-                    instance = FindObjectOfType<T>();
-                    if (instance != null) DontDestroyOnLoad(instance);
+                    _instance = FindObjectOfType<T>();
+                    if (_instance != null) DontDestroyOnLoad(_instance);
                 }
 
-                return instance;
+                return _instance;
             }
         }
     }

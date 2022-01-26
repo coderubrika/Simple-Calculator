@@ -8,18 +8,18 @@ using UnityEngine.Events;
 
 namespace Assets.Scripts.Model
 {
-    public class Calculator : MonoBehaviour
+    public sealed class Calculator : MonoBehaviour
     {
         private enum InputMode { LeftInput, OperatorInput, OnlyOperatorInput, RightInput, None }
 
-        private InputMode mode = InputMode.None;
+        private InputMode _mode = InputMode.None;
         [SerializeField] private BinaryFloatOperator _defaultOperator;
         private BinaryFloatOperator _currentOperator;
 
-        private List<char> rightInputNumbers;
-        private List<char> leftInputNumbers;
+        private List<char> _rightInputNumbers;
+        private List<char> _leftInputNumbers;
 
-        float? leftNumber, rightNumber;
+        float? _leftNumber, _rightNumber;
 
         [SerializeField] private UnityEvent<string> _onRenderPreviewOutput;
         [SerializeField] private UnityEvent<string> _onRenderMainOutput;
@@ -27,17 +27,17 @@ namespace Assets.Scripts.Model
 
         private void Awake()
         {
-            leftInputNumbers = new List<char>();
-            rightInputNumbers = new List<char>();
+            _leftInputNumbers = new List<char>();
+            _rightInputNumbers = new List<char>();
             _currentOperator = _defaultOperator;
         }
 
         private void RenderPreview()
         {
-            string left = leftNumber == null ? "" : ((float)leftNumber).ToString();
-            string right = rightNumber == null ? "" : ((float)rightNumber).ToString();
+            string left = _leftNumber == null ? "" : ((float)_leftNumber).ToString();
+            string right = _rightNumber == null ? "" : ((float)_rightNumber).ToString();
 
-            if (rightNumber == null)
+            if (_rightNumber == null)
             {
                 _onRenderPreviewOutput.Invoke(left);
             }
@@ -55,41 +55,41 @@ namespace Assets.Scripts.Model
 
         private float CalcResult(Func<float, float, float> operation)
         {
-            if (leftNumber == null)
+            if (_leftNumber == null)
             {
-                if (leftInputNumbers.Count == 0) leftNumber = 0f;
-                else leftNumber = float.Parse(ListCharToStr(leftInputNumbers));
+                if (_leftInputNumbers.Count == 0) _leftNumber = 0f;
+                else _leftNumber = float.Parse(ListCharToStr(_leftInputNumbers));
             }
 
-            if (rightNumber == null)
+            if (_rightNumber == null)
             {
-                if (rightInputNumbers.Count == 0) rightNumber = 0f;
-                else rightNumber = float.Parse(ListCharToStr(rightInputNumbers));
+                if (_rightInputNumbers.Count == 0) _rightNumber = 0f;
+                else _rightNumber = float.Parse(ListCharToStr(_rightInputNumbers));
             }
 
-            return operation((float)leftNumber, (float)rightNumber);
+            return operation((float)_leftNumber, (float)_rightNumber);
         }
 
         public void EnterNumber(NumberChar number)
         {
-            if (mode == InputMode.None)
+            if (_mode == InputMode.None)
             {
-                mode = InputMode.LeftInput;
+                _mode = InputMode.LeftInput;
             }
 
-            if (mode == InputMode.OperatorInput)
+            if (_mode == InputMode.OperatorInput)
             {
-                mode = InputMode.RightInput;
+                _mode = InputMode.RightInput;
             }
 
-            if (mode == InputMode.LeftInput)
+            if (_mode == InputMode.LeftInput)
             {
-                PrepareNumber(leftInputNumbers, number, ref leftNumber);
+                PrepareNumber(_leftInputNumbers, number, ref _leftNumber);
             }
 
-            if (mode == InputMode.RightInput)
+            if (_mode == InputMode.RightInput)
             {
-                PrepareNumber(rightInputNumbers, number, ref rightNumber);
+                PrepareNumber(_rightInputNumbers, number, ref _rightNumber);
             }
         }
 
@@ -119,9 +119,9 @@ namespace Assets.Scripts.Model
 
         public void EnterBinaryOperator(BinaryFloatOperator floatOperator)
         {
-            if (mode == InputMode.LeftInput || mode == InputMode.OperatorInput || mode == InputMode.OnlyOperatorInput)
+            if (_mode == InputMode.LeftInput || _mode == InputMode.OperatorInput || _mode == InputMode.OnlyOperatorInput)
             {
-                mode = InputMode.OperatorInput;
+                _mode = InputMode.OperatorInput;
 
                 _currentOperator = floatOperator;
 
@@ -133,16 +133,16 @@ namespace Assets.Scripts.Model
 
         public void EnterActionOperator(ActionOperator actionOperator)
         {
-            if (mode == InputMode.RightInput && actionOperator.operatorEnum == OperatorEnum.Equal)
+            if (_mode == InputMode.RightInput && actionOperator.OperatorEnum == OperatorEnum.Equal)
             {
-                leftNumber = CalcResult(_currentOperator.Operation.Operator);
+                _leftNumber = CalcResult(_currentOperator.Operation.Operator);
 
-                rightNumber = null;
+                _rightNumber = null;
                 _currentOperator = _defaultOperator;
-                mode = InputMode.OnlyOperatorInput;
+                _mode = InputMode.OnlyOperatorInput;
 
-                leftInputNumbers.Clear();
-                rightInputNumbers.Clear();
+                _leftInputNumbers.Clear();
+                _rightInputNumbers.Clear();
 
                 RenderPreview();
                 RenderMainOutput();
