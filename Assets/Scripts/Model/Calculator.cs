@@ -84,50 +84,37 @@ namespace Assets.Scripts.Model
 
             if (mode == InputMode.LeftInput)
             {
-                List<char> testNumbers = new List<char>(leftInputNumbers);
-
-                testNumbers.Add(number.Char);
-
-                string numStr = ListCharToStr(testNumbers);
-
-                try
-                {
-                    int.Parse(numStr);
-
-                    leftInputNumbers.Add(number.Char);
-
-
-                    leftNumber = float.Parse(numStr);
-
-                    
-                    RenderPreview();
-                    RenderMainOutput();
-                }
-                catch (Exception) { }
+                PrepareNumber(leftInputNumbers, number, ref leftNumber);
             }
 
             if (mode == InputMode.RightInput)
             {
-                List<char> testNumbers = new List<char>(rightInputNumbers);
-
-                testNumbers.Add(number.Char);
-
-                string numStr = ListCharToStr(testNumbers);
-
-                try
-                {
-                    int.Parse(numStr);
-
-                    rightInputNumbers.Add(number.Char);
-
-                    rightNumber = float.Parse(numStr);
-                  
-                    RenderPreview();
-                    RenderMainOutput();
-
-                }
-                catch (Exception) { }
+                PrepareNumber(rightInputNumbers, number, ref rightNumber);
             }
+        }
+
+        private void PrepareNumber(List<char> inputNumbers, NumberChar number, ref float? fNumber)
+        {
+            List<char> testNumbers = new List<char>(inputNumbers);
+
+            testNumbers.Add(number.Char);
+
+            string numStr = ListCharToStr(testNumbers);
+
+            try
+            {
+                int.Parse(numStr);
+
+                inputNumbers.Add(number.Char);
+
+
+                fNumber = float.Parse(numStr);
+
+
+                RenderPreview();
+                RenderMainOutput();
+            }
+            catch (Exception) { }
         }
 
         public void EnterBinaryOperator(BinaryFloatOperator floatOperator)
